@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -30,6 +30,13 @@ public class RecipeDto {
     @NotBlank
     @JsonProperty("description")
     private String description;
+
+    @NotBlank
+    @JsonProperty("category")
+    private String category;
+
+    @JsonProperty("date")
+    private Date date;
 
     @NotNull
     @Size(min = 1)

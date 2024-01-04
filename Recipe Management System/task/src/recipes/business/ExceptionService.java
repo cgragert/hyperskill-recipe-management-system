@@ -15,8 +15,8 @@ public class ExceptionService {
         return ResponseEntity.notFound().build();
     }
 
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<Void> handleConstraintViolation() {
+    @ExceptionHandler({ConstraintViolationException.class, IllegalStateException.class})
+    public ResponseEntity<Void> handleBadRequests() {
         return ResponseEntity.badRequest().build();
     }
 }

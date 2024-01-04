@@ -5,6 +5,8 @@ import recipes.api.dto.RecipeDto;
 import recipes.business.entity.Recipe;
 
 import java.util.Collection;
+import java.util.Date;
+import java.util.stream.Collectors;
 
 @Component
 public class RecipeDtoToEntityMapper implements Mapper<Recipe, RecipeDto> {
@@ -14,6 +16,8 @@ public class RecipeDtoToEntityMapper implements Mapper<Recipe, RecipeDto> {
         return new Recipe()
                 .setName(from.getName())
                 .setDescription(from.getDescription())
+                .setCategory(from.getCategory())
+                .setDate(new Date())
                 .setIngredients(from.getIngredients())
                 .setDirections(from.getDirections());
     }
@@ -28,12 +32,14 @@ public class RecipeDtoToEntityMapper implements Mapper<Recipe, RecipeDto> {
         return new RecipeDto()
                 .setName(from.getName())
                 .setDescription(from.getDescription())
+                .setCategory(from.getCategory())
+                .setDate(from.getDate())
                 .setIngredients(from.getIngredients())
                 .setDirections(from.getDirections());
     }
 
     @Override
     public Collection<RecipeDto> mapToDtos(final Collection<Recipe> from) {
-        return null;
+        return from.stream().map(this::mapToDto).toList();
     }
 }

@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,6 +27,12 @@ public class Recipe {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "date")
+    private Date date;
 
     @ElementCollection
     @JoinColumn(name = "ingredients")
