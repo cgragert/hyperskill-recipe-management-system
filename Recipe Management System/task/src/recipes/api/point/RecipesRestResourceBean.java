@@ -22,4 +22,10 @@ public class RecipesRestResourceBean implements RecipesRestResource {
     public ResponseEntity<RecipeDto> getRecipe(final int id) {
         return ResponseEntity.ok(recipeService.getRecipe(id));
     }
+
+    @Override
+    public ResponseEntity<Void> deleteRecipe(final int id) {
+        recipeService.deleteRecipe(id);
+        return ResponseEntity.noContent().build();
+    }
 }

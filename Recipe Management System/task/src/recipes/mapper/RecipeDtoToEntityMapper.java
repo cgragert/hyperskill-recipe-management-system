@@ -2,7 +2,7 @@ package recipes.mapper;
 
 import org.springframework.stereotype.Component;
 import recipes.api.dto.RecipeDto;
-import recipes.repository.Recipe;
+import recipes.business.entity.Recipe;
 
 import java.util.Collection;
 

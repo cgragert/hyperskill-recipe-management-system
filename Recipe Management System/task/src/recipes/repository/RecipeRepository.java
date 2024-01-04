@@ -1,8 +1,10 @@
 package recipes.repository;
 
-public interface RecipeRepository {
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import recipes.business.entity.Recipe;
 
-    Recipe getRecipe(final int id);
+@Repository
+public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
 
-    void addRecipe(final Recipe recipe);
 }
