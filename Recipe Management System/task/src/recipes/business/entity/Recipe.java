@@ -34,6 +34,10 @@ public class Recipe {
     @Column(name = "date")
     private Date date;
 
+    @ManyToOne
+    @JoinColumn(name = "user")
+    private User user;
+
     @ElementCollection
     @JoinColumn(name = "ingredients")
     private List<String> ingredients;
